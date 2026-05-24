@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ito カードゲーム</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== ロビー画面 ===== -->
+  <div id="screen-lobby" class="screen active">
+    <div class="card">
+      <h1 class="logo">ito</h1>
+      <p class="subtitle">数字を声に出さずに伝えよう</p>
+      <div class="form-group">
+        <label for="input-name">あなたの名前</label>
+        <input id="input-name" type="text" maxlength="20" placeholder="名前を入力" />
+      </div>
+      <div class="form-group">
+        <label>①種類を選択</label>
+        <div id="category-list" class="theme-grid">
+          <!-- JS で挿入 -->
+        </div>
+      </div>
+      <div class="form-group">
+        <label>②属性を選択</label>
+        <div id="attribute-list" class="theme-grid">
+          <!-- JS で挿入 -->
+        </div>
+      </div>
+      <div id="combo-info" class="combo-info"></div>
+      <button id="btn-join" class="btn btn-primary" disabled>参加する</button>
+      <p id="lobby-error" class="error-msg"></p>
+    </div>
+  </div>
+
+  <!-- ===== 待機室画面 ===== -->
+  <div id="screen-waiting" class="screen">
+    <div class="card">
+      <div class="room-info">
+        <span class="badge" id="waiting-theme-label"></span>
+        <span class="room-id" id="waiting-room-id"></span>
+      </div>
+      <h2>プレイヤーを待っています</h2>
+      <ul id="player-list" class="player-list"></ul>
+      <p class="hint">2人以上・全員が準備OKでゲーム開始</p>
+      <button id="btn-ready" class="btn btn-primary">準備 OK</button>
+    </div>
+  </div>
+
+  <!-- ===== ゲーム画面 ===== -->
+  <div id="screen-game" class="screen">
+    <div class="game-header">
+      <div class="game-meta">
+        <span class="badge" id="game-theme-label"></span>
+        <span id="game-theme-desc" class="theme-desc"></span>
+      </div>
+      <div id="timer" class="timer">3:00</div>
+    </div>
+
+    <div class="game-body">
+      <!-- 自分のカード -->
+      <div class="my-card-area">
+        <p class="my-card-hint">あなたのカード</p>
+        <div class="my-card" id="my-card-number">?</div>
+      </div>
+
+      <!-- 提出状況 -->
+      <div class="submit-status" id="submit-status">
+        <!-- JS で挿入 -->
+      </div>
+
+      <!-- チャット -->
+      <div class="chat-area">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-row">
+          <input
+            id="chat-input"
+            type="text"
+            maxlength="20"
+            placeholder="ヒントを入力（20文字以内）"
+          />
+          <button id="btn-chat-send" class="btn btn-secondary">送信</button>
+        </div>
+        <p class="char-counter"><span id="chat-char-count">0</span> / 20</p>
+      </div>
+    </div>
+
+    <div class="game-footer">
+      <button id="btn-submit" class="btn btn-danger btn-large">カードを出す</button>
+    </div>
+  </div>
+
+  <!-- ===== 結果画面 ===== -->
+  <div id="screen-result" class="screen">
+    <div class="card">
+      <div id="result-banner" class="result-banner"></div>
+      <table id="result-table" class="result-table">
+        <thead>
+          <tr>
+            <th>順番</th>
+            <th>名前</th>
+            <th>数字</th>
+            <th>出した時刻</th>
+          </tr>
+        </thead>
+        <tbody id="result-tbody"></tbody>
+      </table>
+      <button id="btn-retry" class="btn btn-primary">もう一度遊ぶ</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
