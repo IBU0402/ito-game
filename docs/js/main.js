@@ -1,7 +1,7 @@
 // サーバーURL: 本番では Render の URL に変更
 const SERVER_URL = window.location.hostname === 'localhost'
   ? 'http://localhost:3000'
-  : 'https://your-render-app.onrender.com'; // ← デプロイ後に変更
+  : 'https://ito-game-31ry.onrender.com'; 
 
 const socket = io(SERVER_URL);
 
