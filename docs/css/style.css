@@ -304,6 +304,46 @@ input[type="text"]:focus { border-color: var(--blue); }
 .result-table tr.not-submitted { background: #f4f6f7; }
 .result-table tr.not-submitted td { color: var(--mid); }
 
+/* ===== How to play ===== */
+.how-to-play {
+  margin-top: 20px;
+  border: 1px solid var(--light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.how-to-play summary {
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--mid);
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+.how-to-play summary::before {
+  content: '▶ ';
+  font-size: 0.7rem;
+}
+.how-to-play[open] summary::before { content: '▼ '; }
+
+.how-to-play ol {
+  padding: 0 16px 12px 32px;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--dark);
+}
+.how-to-play ol span {
+  font-size: 0.78rem;
+  color: var(--mid);
+}
+
+.htp-note {
+  padding: 0 16px 12px;
+  font-size: 0.78rem;
+  color: var(--mid);
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 480px) {
   .card { padding: 24px 16px; }
